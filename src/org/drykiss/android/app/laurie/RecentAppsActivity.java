@@ -186,8 +186,7 @@ public class RecentAppsActivity extends Activity {
             for (int i = 0; i < numTasks; i++) {
                 ActivityManager.RecentTaskInfo info = recentTasks.get(i);
                 if (info.id == -1) {
-                    Toast.makeText(RecentAppsActivity.this, "dead process " + info.toString(),
-                            Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "dead process " + info.toString());
                 }
                 final String packageName = info.baseIntent.resolveActivity(pm).getPackageName();
                 if (RecentAppsActivity.this.getPackageName().equals(packageName)) {
