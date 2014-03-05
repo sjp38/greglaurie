@@ -12,5 +12,7 @@
     <string name="can_not_start_recent_app">"Can't switch to this app. This app has some problem."</string>
     <string name="onOffHomeButton">HOME button</string>
     <string name="onOffRecentAppsButton">RECENT APPS button</string>
+    <string name="kill_recent_app">Kill</string>
+    <string name="can_not_kill_app">Can not kill the app</string>
 
 </resources>
