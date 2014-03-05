@@ -189,11 +189,15 @@ public class RecentAppsActivity extends Activity {
                     Toast.makeText(RecentAppsActivity.this, "dead process " + info.toString(),
                             Toast.LENGTH_SHORT).show();
                 }
+                final String packageName = info.baseIntent.resolveActivity(pm).getPackageName();
+                if (RecentAppsActivity.this.getPackageName().equals(packageName)) {
+                    continue;
+                }
                 boolean found = false;
                 for (int j = 0; j < procs.size(); j++) {
                     final String[] pkgs = procs.get(j).pkgList;
                     for (int k = 0; k < pkgs.length; k++) {
-                        if (info.baseIntent.resolveActivity(pm).getPackageName().equals(pkgs[k])) {
+                        if (packageName.equals(pkgs[k])) {
                             found = true;
                             break;
                         }
