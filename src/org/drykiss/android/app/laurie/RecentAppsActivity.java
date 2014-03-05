@@ -20,9 +20,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.drykiss.android.app.laurie.ad.AdvertisementManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,7 @@ public class RecentAppsActivity extends Activity {
     private static final String TAG = "Laurie_recnetAppsActivity";
 
     private BaseAdapter mAdapter;
+    private View mAdView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,10 @@ public class RecentAppsActivity extends Activity {
 
         final ListView listView = (ListView) findViewById(R.id.recentAppsListView);
         listView.setAdapter(mAdapter);
+
+        mAdView = AdvertisementManager.getAdvertisementView(this);
+        LinearLayout adLayout = (LinearLayout) findViewById(R.id.advertiseLayout);
+        adLayout.addView(mAdView);
     }
 
     @Override
